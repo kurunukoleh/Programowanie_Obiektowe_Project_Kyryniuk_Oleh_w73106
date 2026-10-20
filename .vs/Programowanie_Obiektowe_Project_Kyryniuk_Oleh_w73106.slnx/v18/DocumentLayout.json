@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D7FAB886-8ADC-43F4-9107-7B15FFF0C0EB}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D7FAB886-8ADC-43F4-9107-7B15FFF0C0EB}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\data\\datatest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\data\\datatest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7FAB886-8ADC-43F4-9107-7B15FFF0C0EB}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7FAB886-8ADC-43F4-9107-7B15FFF0C0EB}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\generators\\alphabetgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\generators\\alphabetgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\models\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\models\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|c:\\users\\bebra228\\desktop\\project programming\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A51256B-6838-826B-6F76-0129DD4C4160}|Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106.csproj|solutionrelative:programowanie_obiektowe_project_kyryniuk_oleh_w73106\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,18 +39,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Datatest.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\Datatest.cs",
+              "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\Datatest.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\Datatest.cs",
+              "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\Datatest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T08:55:03.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataBase.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\DataBase.cs",
+              "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\DataBase.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\DataBase.cs",
+              "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Data\\DataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T08:42:07.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AlphabetGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Generators\\AlphabetGenerator.cs",
+              "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Generators\\AlphabetGenerator.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Generators\\AlphabetGenerator.cs",
+              "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Generators\\AlphabetGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T08:25:06.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Models\\Language.cs",
+              "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Models\\Language.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Models\\Language.cs",
+              "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Models\\Language.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T08:13:25.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml",
               "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-19T17:58:20.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-19T17:58:20.92Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml.cs",
@@ -42,8 +106,7 @@
               "RelativeToolTip": "Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T17:58:16.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-19T17:58:16.419Z"
             }
           ]
         }
