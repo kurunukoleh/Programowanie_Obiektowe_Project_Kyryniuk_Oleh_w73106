@@ -4,14 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOP_project.Generators
+namespace OOP_project.Models
 {
-    class AlphabetGenerator
+    class PhoneticSystem
     {
         private readonly Database _database = new Database();
         private Dictionary<string , string> _choose_symbols;
 
-        public AlphabetGenerator(int LettersCount)
+
+
+        public PhoneticSystem(int LettersCount)
         {
             _choose_symbols = _database.ReadSymbols();
 
