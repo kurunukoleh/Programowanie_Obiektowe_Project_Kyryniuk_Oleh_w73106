@@ -4,11 +4,17 @@ using System;
 
 namespace OOP_project.Models
 {
-    internal class Suffix : Morpheme
+    internal class Affix : Morpheme
     {
         private readonly Random _random = new Random();
 
-        public Suffix(Database database)
+        public int Id { get; set; }
+        public string AffixText { get; set; } = "";
+        public int PartOfSpeechId { get; set; }
+        public int GrammaticalCategoryId { get; set; }
+        public int AffixTypeId { get; set; }
+
+        public Affix(Database database)
             : base(database)
         {
             using var connection = database.GetConnection();
@@ -17,7 +23,7 @@ namespace OOP_project.Models
                 GetRandomId(connection, "PartOfSpeech");
 
             int categoryId =
-                GetRandomId(connection, "GrammaticalCategory");
+                GetRandomId(connection, "GrammaticalLibrary");
 
             int affixTypeId =
                 GetRandomId(connection, "AffixType");
@@ -30,14 +36,14 @@ namespace OOP_project.Models
                    GrammaticalCategoryId, AffixTypeId)
                   VALUES
                   (@Affix, @PartOfSpeechId,
-                   @CategoryId, @AffixTypeId)",
+                   @Code, @AffixTypeId)",
                 connection);
 
             command.Parameters.AddWithValue("@Affix", affix);
             command.Parameters.AddWithValue(
                 "@PartOfSpeechId", partOfSpeechId);
             command.Parameters.AddWithValue(
-                "@CategoryId", categoryId);
+                "@Code", categoryId);
             command.Parameters.AddWithValue(
                 "@AffixTypeId", affixTypeId);
 
@@ -56,9 +62,11 @@ namespace OOP_project.Models
 
             if (result == null)
                 throw new InvalidOperationException(
-                    $"Таблиця {tableName} порожня.");
+                    $"Tablica {tableName} jest pusta.");
 
             return Convert.ToInt32(result);
         }
+
+        
     }
 }

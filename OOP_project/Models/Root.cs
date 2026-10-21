@@ -20,7 +20,7 @@ namespace OOP_project.Models
 
             command.Parameters.AddWithValue(
                 "@Root",
-                GenerateMorpheme(_random.Next(2, 10)));
+                GenerateMorpheme(_random.Next(2, 15)));
 
             command.ExecuteNonQuery();
         }
