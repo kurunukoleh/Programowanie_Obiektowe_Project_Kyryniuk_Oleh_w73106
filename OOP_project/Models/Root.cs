@@ -8,21 +8,22 @@ namespace OOP_project.Models
     {
         private readonly Random _random = new Random();
 
+
         public Root(Database database)
             : base(database)
         {
             using var connection = database.GetConnection();
 
+            string root = GenerateMorpheme(_random.Next(2, 15));
 
             using var command = new SqliteCommand(
-                "INSERT INTO Roots (Symbol) VALUES (@Root)",
+                "INSERT INTO Roots (Root) VALUES (@Root)",
                 connection);
 
-            command.Parameters.AddWithValue(
-                "@Root",
-                GenerateMorpheme(_random.Next(2, 15)));
+            command.Parameters.AddWithValue("@Root", root);
 
             command.ExecuteNonQuery();
         }
+
     }
 }

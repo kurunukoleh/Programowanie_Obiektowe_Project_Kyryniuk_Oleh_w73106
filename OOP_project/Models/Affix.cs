@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
 using OOP_project.Data;
 using System;
+using System.Windows.Controls.Primitives;
+using System.Windows;
 
 namespace OOP_project.Models
 {
@@ -14,16 +16,17 @@ namespace OOP_project.Models
         public int GrammaticalCategoryId { get; set; }
         public int AffixTypeId { get; set; }
 
-        public Affix(Database database)
-            : base(database)
+
+
+        public Affix(Database database) : base(database)
         {
             using var connection = database.GetConnection();
 
             int partOfSpeechId =
                 GetRandomId(connection, "PartOfSpeech");
 
-            int categoryId =
-                GetRandomId(connection, "GrammaticalLibrary");
+            string grammaticalRoleCode =
+                GetRandomCode(connection, "GrammaticalLibrary");
 
             int affixTypeId =
                 GetRandomId(connection, "AffixType");
@@ -32,23 +35,56 @@ namespace OOP_project.Models
 
             using var command = new SqliteCommand(
                 @"INSERT INTO Affixes
-                  (Affix, PartOfSpeechId,
-                   GrammaticalCategoryId, AffixTypeId)
-                  VALUES
-                  (@Affix, @PartOfSpeechId,
-                   @Code, @AffixTypeId)",
+          (Affix, PartOfSpeechId, GrammaticalRoleCode, AffixTypeId)
+          VALUES
+          (@Affix, @PartOfSpeechId, @Code, @AffixTypeId);",
                 connection);
 
             command.Parameters.AddWithValue("@Affix", affix);
-            command.Parameters.AddWithValue(
-                "@PartOfSpeechId", partOfSpeechId);
-            command.Parameters.AddWithValue(
-                "@Code", categoryId);
-            command.Parameters.AddWithValue(
-                "@AffixTypeId", affixTypeId);
+            command.Parameters.AddWithValue("@PartOfSpeechId", partOfSpeechId);
+            command.Parameters.AddWithValue("@Code", grammaticalRoleCode);
+            command.Parameters.AddWithValue("@AffixTypeId", affixTypeId);
 
-            command.ExecuteNonQuery();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (SqliteException ex)
+            {
+                throw new InvalidOperationException(
+                    $"Не вдалося додати афікс.\n" +
+                    $"Database: {database.DatabasePath}\n" +
+                    $"PartOfSpeechId: {partOfSpeechId}\n" +
+                    $"GrammaticalRoleCode: {grammaticalRoleCode}\n" +
+                    $"AffixTypeId: {affixTypeId}\n" +
+                    $"Affix: {affix}\n" +
+                    $"SQLite error: {ex.Message}",
+                    ex);
+            }
         }
+
+
+
+        private string GetRandomCode(
+            SqliteConnection connection,
+            string tableName)
+        {
+            using var command = new SqliteCommand(
+                $"SELECT Code FROM {tableName} ORDER BY RANDOM() LIMIT 1",
+                connection);
+
+            object? result = command.ExecuteScalar();
+
+            if (result == null || result == DBNull.Value)
+            {
+                throw new InvalidOperationException(
+                    $"Tabela {tableName} jest pusta.");
+            }
+
+            return Convert.ToString(result)!;
+        }
+
+
 
         private int GetRandomId(
             SqliteConnection connection,

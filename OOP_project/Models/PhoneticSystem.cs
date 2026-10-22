@@ -1,52 +1,56 @@
-﻿using Microsoft.Data.Sqlite;
+﻿
+using Microsoft.Data.Sqlite;
 using OOP_project.Data;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace OOP_project.Models
 {
-    class PhoneticSystem
+    public class PhoneticSystem
     {
-        private readonly Database _database = new Database();
-        private Dictionary<string , string> _choose_symbols;
+        private readonly Database _database;
 
-
-
-        public PhoneticSystem(int LettersCount)
+        public PhoneticSystem(Database database)
         {
-            _choose_symbols = _database.ReadSymbols();
-
-            Random random = new Random();
-            using var connection = _database.GetConnection();
-
-            if (_choose_symbols.Count > 0)
-            {
-                for(int i = 0; i < LettersCount; i++) 
-                {
-                    var item = _choose_symbols.ElementAt(
-                    random.Next(_choose_symbols.Count));
-
-                    string symbol = item.Key;
-                    string category = item.Value;
-
-                    using var command = new SqliteCommand(
-                        "INSERT INTO AlphabetSybbols (Symbol, Category) " +
-                        "VALUES (@symbol, @category)",
-                        connection);
-
-                    command.Parameters.AddWithValue("@symbol", symbol);
-                    command.Parameters.AddWithValue("@category", category);
-
-                    command.ExecuteNonQuery();
-                }
-                
-            }
+            _database = database;
         }
 
+        public void GenerateAlphabet(int lettersCount, int languageId)
+        {
+            var symbols = _database.ReadSymbols();
 
+            if (symbols.Count == 0)
+            {
+                throw new InvalidOperationException(
+                    "AlphabetLibrary is empty.");
+            }
 
+            var random = new Random();
 
+            using var connection = _database.GetConnection();
 
+            for (int i = 0; i < lettersCount; i++)
+            {
+                var item = symbols.ElementAt(
+                    random.Next(symbols.Count));
+
+                using var command = new SqliteCommand(
+                    @"INSERT INTO AlphabetSymbols
+                      (Symbol, Category)
+                      VALUES (@symbol, @category)",
+                    connection);
+
+                
+
+                command.Parameters.AddWithValue(
+                    "@symbol", item.Key);
+
+                command.Parameters.AddWithValue(
+                    "@category", item.Value);
+
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

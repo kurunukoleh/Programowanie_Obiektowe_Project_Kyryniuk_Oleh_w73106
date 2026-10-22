@@ -1,312 +1,360 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using Microsoft.Data.Sqlite;
-
-// rozstawić this-y
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace OOP_project.Data
 {
     public class Database
     {
-        private readonly string _connectionString =
-            @"Data Source=C:\LinguaForge\linguaForge.db";
+        private readonly string _connectionString;
+
+        public Database()
+        {
+            string dbPath =
+                @"C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\Data\LuinguaForge.db";
+
+            Directory.CreateDirectory(
+                Path.GetDirectoryName(dbPath)!);
+
+            _connectionString = $"Data Source={dbPath}";
+        }
+
+        public string DatabasePath =>
+            new SqliteConnectionStringBuilder(
+                _connectionString).DataSource;
 
         public SqliteConnection GetConnection()
         {
-            var connection = new SqliteConnection(_connectionString);
+            var connection =
+                new SqliteConnection(_connectionString);
+
             connection.Open();
+
+            using var command = connection.CreateCommand();
+            command.CommandText = "PRAGMA foreign_keys = ON;";
+            command.ExecuteNonQuery();
+
             return connection;
         }
-
-        public Dictionary<string, string> ReadSymbols()
-        {
-            var symbols = new Dictionary<string, string>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Symbol, Category FROM AlphabetLibrary", connection);
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                string symbol = reader.GetString(0);
-                string category = reader.GetString(1);
-
-                symbols[symbol] = category;
-            }
-
-            return symbols;
-        }
-
-        public Dictionary<string, string> ReadAlphabet()
-        {
-            var symbols = new Dictionary<string, string>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Code, Category FROM AlphabetSymbols", connection);
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                string symbol = reader.GetString(0);
-                string category = reader.GetString(1);
-
-                symbols[symbol] = category;
-            }
-
-            return symbols;
-        }
-
-
-        public List<string> ReadGramaticalRoles()
-        {
-            var codes = new List<string>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Code FROM GrammaticalLibrary", connection);
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                string code = reader.GetString(0);
-
-                codes.Append(code);
-            }
-
-            return codes ;
-        }
-
-        //public List<string> ReadAffixes()
-        //{
-        //    var items = new List<string>();
-
-        //    using var connection = GetConnection();
-        //    using var command = new SqliteCommand(
-        //        "SELECT Affix FROM Affixes", connection);
-        //    using var reader = command.ExecuteReader();
-
-        //    while (reader.Read())
-        //    {
-        //        string item = reader.GetString(0);
-
-        //        items.Append(item);
-        //    }
-
-        //    return items;
-        //}
-
-        //public List<string> ReadAffixesType()
-        //{
-        //    var items = new List<string>();
-
-        //    using var connection = GetConnection();
-
-        //    using var command = new SqliteCommand(
-        //        @"SELECT AffixType.Name
-        //  FROM Affixes
-        //  INNER JOIN AffixType
-        //      ON Affixes.AffixTypeId = AffixType.Id",
-        //        connection);
-
-        //    using var reader = command.ExecuteReader();
-
-        //    while (reader.Read())
-        //    {
-        //        string item = reader.GetString(0);
-        //        items.Add(item);
-        //    }
-
-        //    return items;
-        //}
-
-        public List<(string Affix, string Type)> ReadAffixesWithTypes()
-        {
-            var items = new List<(string Affix, string Type)>();
-
-            using var connection = GetConnection();
-
-            using var command = new SqliteCommand(
-                @"SELECT Affixes.Affix, AffixType.Name
-          FROM Affixes
-          INNER JOIN AffixType
-              ON Affixes.AffixTypeId = AffixType.Id",
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                items.Add((
-                    reader.GetString(0),
-                    reader.GetString(1)
-                ));
-            }
-
-            return items;
-        }
-
-        public List<string> ReadRoots()
-        {
-            var items = new List<string>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Root FROM Roots", connection);
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                string item = reader.GetString(0);
-
-                items.Append(item);
-            }
-
-            return items;
-        }
-
- // sprawdzić czy Id się nie będą nakładać
 
         public void InitializeDatabase()
         {
             using var connection = GetConnection();
 
-            string sql = @"
-        CREATE TABLE IF NOT EXISTS AlphabetLibrary (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Symbol TEXT NOT NULL,
-            Category TEXT NOT NULL
-        );
+            string[] createTables =
+            {
+                """
+                CREATE TABLE IF NOT EXISTS PartOfSpeech (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT NOT NULL UNIQUE,
+                    Description TEXT
+                );
+                """,
 
-            CREATE TABLE IF NOT EXISTS Affixes (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Affix TEXT NOT NULL,
-            PartOfSpeechId INTEGER NOT NULL,
-            GrammaticalCategoryId INTEGER NOT NULL,
-            AffixTypeId INTEGER NOT NULL,
-            FOREIGN KEY (PartOfSpeechId) REFERENCES PartOfSpeech(Id),
-            FOREIGN KEY (GrammaticalCategoryId) REFERENCES GrammaticalLibrary (Code),
-            FOREIGN KEY (AffixTypeId) REFERENCES AffixType(Id)
-        );
-
-            CREATE TABLE IF NOT EXISTS AffixAllowedRoots (
-            AffixId INTEGER NOT NULL,
-            RootId INTEGER NOT NULL,
-
-            PRIMARY KEY (AffixId, RootId),
-
-            FOREIGN KEY (AffixId) REFERENCES Affixes(Id),
-            FOREIGN KEY (RootId) REFERENCES Roots(Id)
-        );
-
-            CREATE TABLE IF NOT EXISTS AlphabetSymbols (
-                Id         INTEGER PRIMARY KEY AUTOINCREMENT,
-                LanguageId INTEGER NOT NULL,
-                Symbol     TEXT    NOT NULL,
-                Category   TEXT    NOT NULL,
-                FOREIGN KEY (
-                    LanguageId
-                )
-                REFERENCES Languages (Id) 
-            );
-
-            CREATE TABLE IF NOT EXISTS Roots (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Root TEXT NOT NULL,
-                TranslateId TEXT,
-            );
-
-            CREATE TABLE IF NOT EXISTS GrammaticalCategory (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL,
-                PartOfSpeechId INTEGER NOT NULL,
-                Description TEXT,
-                FOREIGN KEY (PartOfSpeechId)
-                    REFERENCES PartOfSpeech(Id),
-                UNIQUE (Name, PartOfSpeechId)
-            );
-
-            CREATE TABLE IF NOT EXISTS AffixType (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL UNIQUE
-            );
-
-            INSERT OR IGNORE INTO AffixType (Name)
-            VALUES
-                ('Prefix'),
-                ('Suffix'),
-                ('Infix'),
-                ('Circumfix'),
-                ('Suprafix'),
-                ('Interfix'),
-                ('Transfix');
-
-            CREATE TABLE IF NOT EXISTS PartOfSpeech (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL UNIQUE,
-                Description TEXT
-            );
-
-            INSERT OR IGNORE INTO PartOfSpeech (Name, Description)
-            VALUES
-                ('Noun', 'Rzeczownik'),
-                ('Verb', 'Czasownik'),
-                ('Adjective', 'Przymiotnik'),
-                ('Adverb', 'Przysłówek'),
-                ('Pronoun', 'Zaimek'),
-                ('Numeral', 'Liczebnik'),
-                ('Preposition', 'Przyimek'),
-                ('Postposition', 'Poimek'),
-                ('Conjunction', 'Spójnik'),
-                ('Interjection', 'Wykrzyknik'),
-                ('Particle', 'Partykuła'),
-                ('Determiner', 'Określnik'),
-                ('Article', 'Rodzajnik'),
-                ('AuxiliaryVerb', 'Czasownik posiłkowy'),
-                ('ModalVerb', 'Czasownik modalny'),
-                ('Copula', 'Łącznik'),
-                ('Classifier', 'Klasyfikator'),
-                ('Counter', 'Wyraz klasyfikujący'),
-                ('Quantifier', 'Kwantyfikator'),
-                ('Possessive', 'Wyraz dzierżawczy'),
-                ('Demonstrative', 'Wyraz wskazujący'),
-                ('RelativePronoun', 'Zaimek względny'),
-                ('InterrogativePronoun', 'Zaimek pytajny'),
-                ('ReflexivePronoun', 'Zaimek zwrotny'),
-                ('ReciprocalPronoun', 'Zaimek wzajemny'),
-                ('PersonalPronoun', 'Zaimek osobowy'),
-                ('IndefinitePronoun', 'Zaimek nieokreślony'),
-                ('NegativePronoun', 'Zaimek przeczący'),
-                ('Converb', 'Forma czasownikowa łącząca czynności'),
-                ('Participle', 'Imiesłów'),
-                ('Infinitive', 'Bezokolicznik'),
-                ('Gerund', 'Gerundium'),
-                ('VerbalNoun', 'Rzeczownik odczasownikowy'),
-                ('AuxiliaryParticle', 'Partykuła pomocnicza'),
-                ('FocusParticle', 'Partykuła wyróżniająca'),
-                ('NegationParticle', 'Partykuła przecząca'),
-                ('DiscourseParticle', 'Partykuła dyskursywna'),
-                ('Clitic', 'Klit yka'),
-                ('Onomatopoeia', 'Wyraz dźwiękonaśladowczy'),
-                ('Ideophone', 'Ideofon'),
-                ('Abbreviation', 'Skrótowiec'),
-                ('Symbol', 'Symbol'),
-                ('Greeting', 'Forma powitalna'),
-                ('Farewell', 'Forma pożegnalna'),
-                ('Affirmation', 'Wyraz potwierdzający'),
-                ('Negation', 'Wyraz przeczący'),
-                ('Filler', 'Wypełniacz wypowiedzi');
-
+                """
                 CREATE TABLE IF NOT EXISTS GrammaticalLibrary (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Category TEXT NOT NULL,
                     Code TEXT NOT NULL UNIQUE,
                     Description TEXT NOT NULL
                 );
+                """,
 
-                INSERT OR IGNORE INTO GrammaticalLibrary
+                """
+                CREATE TABLE IF NOT EXISTS AffixType (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT NOT NULL UNIQUE
+                );
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS Roots (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Symbol TEXT NOT NULL
+                );
+                
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS AlphabetLibrary (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Symbol TEXT NOT NULL UNIQUE,
+                    Category TEXT NOT NULL
+                );
+                """,
+
+                // bez LanguageId oraz Languages.
+                """
+                CREATE TABLE IF NOT EXISTS AlphabetSymbols (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Symbol TEXT NOT NULL,
+                    Category TEXT NOT NULL
+                );
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS GrammaticalCategory (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT NOT NULL,
+                    PartOfSpeechId INTEGER NOT NULL,
+                    Description TEXT,
+                    FOREIGN KEY (PartOfSpeechId)
+                        REFERENCES PartOfSpeech(Id),
+                    UNIQUE (Name, PartOfSpeechId)
+                );
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS Affixes (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Affix TEXT NOT NULL,
+                    PartOfSpeechId INTEGER NOT NULL,
+                    GrammaticalRoleCode TEXT NOT NULL,
+                    AffixTypeId INTEGER NOT NULL,
+                    FOREIGN KEY (PartOfSpeechId)
+                        REFERENCES PartOfSpeech(Id),
+                    FOREIGN KEY (GrammaticalRoleCode)
+                        REFERENCES GrammaticalLibrary(Code),
+                    FOREIGN KEY (AffixTypeId)
+                        REFERENCES AffixType(Id)
+                );
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS AffixAllowedRoots (
+                    AffixId INTEGER NOT NULL,
+                    RootId INTEGER NOT NULL,
+                    PRIMARY KEY (AffixId, RootId),
+                    FOREIGN KEY (AffixId)
+                        REFERENCES Affixes(Id),
+                    FOREIGN KEY (RootId)
+                        REFERENCES Roots(Id)
+                );
+                """
+            };
+
+            foreach (string sql in createTables)
+            {
+                using var command =
+                    new SqliteCommand(sql, connection);
+
+                command.ExecuteNonQuery();
+            }
+
+            // początkowe typy.
+            using (var command = new SqliteCommand(
+                """
+                INSERT OR IGNORE INTO AffixType (Name)
+                VALUES ('Prefix'), ('Suffix');
+                """,
+                connection))
+            {
+                command.ExecuteNonQuery();
+            }
+
+            // początkowa biblioteka .
+            using (var command = new SqliteCommand(
+                """
+                INSERT OR IGNORE INTO AlphabetLibrary (Symbol, Category)
+                VALUES
+
+                ('a', 'Vowel'),
+                ('e', 'Vowel'),
+                ('i', 'Vowel'),
+                ('o', 'Vowel'),
+                ('u', 'Vowel'),
+                ('y', 'Vowel'),
+                ('æ', 'Vowel'),
+                ('ø', 'Vowel'),
+                ('œ', 'Vowel'),
+                ('ɐ', 'Vowel'),
+                ('ɑ', 'Vowel'),
+                ('ɒ', 'Vowel'),
+                ('ɔ', 'Vowel'),
+                ('ɛ', 'Vowel'),
+                ('ɜ', 'Vowel'),
+                ('ɞ', 'Vowel'),
+                ('ə', 'Vowel'),
+                ('ɘ', 'Vowel'),
+                ('ɤ', 'Vowel'),
+                ('ɨ', 'Vowel'),
+                ('ɪ', 'Vowel'),
+                ('ʊ', 'Vowel'),
+                ('ʌ', 'Vowel'),
+                ('ɯ', 'Vowel'),
+                ('ɶ', 'Vowel'),
+                ('ɵ', 'Vowel'),
+                ('ɚ', 'Vowel'),
+                ('ɝ', 'Vowel'),
+
+
+                ('p', 'Consonant'),
+                ('b', 'Consonant'),
+                ('t', 'Consonant'),
+                ('d', 'Consonant'),
+                ('ʈ', 'Consonant'),
+                ('ɖ', 'Consonant'),
+                ('c', 'Consonant'),
+                ('ɟ', 'Consonant'),
+                ('k', 'Consonant'),
+                ('g', 'Consonant'),
+                ('q', 'Consonant'),
+                ('ɢ', 'Consonant'),
+                ('ʔ', 'Consonant'),
+
+
+                ('m', 'Consonant'),
+                ('ɱ', 'Consonant'),
+                ('n', 'Consonant'),
+                ('ɳ', 'Consonant'),
+                ('ɲ', 'Consonant'),
+                ('ŋ', 'Consonant'),
+                ('ɴ', 'Consonant'),
+
+
+                ('ʙ', 'Consonant'),
+                ('r', 'Consonant'),
+                ('ʀ', 'Consonant'),
+                ('ɾ', 'Consonant'),
+                ('ɽ', 'Consonant'),
+
+
+                ('ɸ', 'Consonant'),
+                ('β', 'Consonant'),
+                ('f', 'Consonant'),
+                ('v', 'Consonant'),
+                ('θ', 'Consonant'),
+                ('ð', 'Consonant'),
+                ('s', 'Consonant'),
+                ('z', 'Consonant'),
+                ('ʃ', 'Consonant'),
+                ('ʒ', 'Consonant'),
+                ('ʂ', 'Consonant'),
+                ('ʐ', 'Consonant'),
+                ('ç', 'Consonant'),
+                ('ʝ', 'Consonant'),
+                ('x', 'Consonant'),
+                ('ɣ', 'Consonant'),
+                ('χ', 'Consonant'),
+                ('ʁ', 'Consonant'),
+                ('ħ', 'Consonant'),
+                ('ʕ', 'Consonant'),
+                ('h', 'Consonant'),
+                ('ɦ', 'Consonant'),
+
+
+                ('ts', 'Affricate'),
+                ('dz', 'Affricate'),
+                ('tʃ', 'Affricate'),
+                ('dʒ', 'Affricate'),
+                ('tɕ', 'Affricate'),
+                ('dʑ', 'Affricate'),
+                ('tɬ', 'Affricate'),
+                ('dɮ', 'Affricate'),
+
+
+                ('ʋ', 'Consonant'),
+                ('ɹ', 'Consonant'),
+                ('ɻ', 'Consonant'),
+                ('j', 'Consonant'),
+                ('ɰ', 'Consonant'),
+                ('w', 'Consonant'),
+                ('ɥ', 'Consonant'),
+                ('l', 'Consonant'),
+                ('ɭ', 'Consonant'),
+                ('ʎ', 'Consonant'),
+                ('ʟ', 'Consonant'),
+
+
+                ('ai', 'Diphthong'),
+                ('au', 'Diphthong'),
+                ('ei', 'Diphthong'),
+                ('eu', 'Diphthong'),
+                ('oi', 'Diphthong'),
+                ('ou', 'Diphthong'),
+                ('ia', 'Diphthong'),
+                ('ie', 'Diphthong'),
+                ('io', 'Diphthong'),
+                ('ua', 'Diphthong'),
+                ('ue', 'Diphthong'),
+                ('ui', 'Diphthong'),
+                ('ɔi', 'Diphthong'),
+                ('ɛi', 'Diphthong'),
+                ('əu', 'Diphthong'),
+                ('ɐi', 'Diphthong'),
+
+
+                ('ʍ', 'Consonant'),
+                ('ɕ', 'Consonant'),
+                ('ʑ', 'Consonant'),
+                ('ɬ', 'Consonant'),
+                ('ɮ', 'Consonant'),
+                ('ʜ', 'Consonant'),
+                ('ʢ', 'Consonant'),
+                ('ʡ', 'Consonant'),
+                ('ɺ', 'Consonant'),
+                ('ɧ', 'Consonant'),
+                ('ɫ', 'Consonant'),
+                ('ʲ', 'Modifier'),
+                ('ʷ', 'Modifier'),
+                ('ː', 'Modifier'),
+                ('ˑ', 'Modifier');
+
+
+                            INSERT OR IGNORE INTO PartOfSpeech (Name, Description)
+                VALUES
+                    ('Noun', 'Rzeczownik'),
+                    ('Verb', 'Czasownik'),
+                    ('Adjective', 'Przymiotnik'),
+                    ('Adverb', 'Przysłówek'),
+                    ('Pronoun', 'Zaimek'),
+                    ('Numeral', 'Liczebnik'),
+                    ('Preposition', 'Przyimek'),
+                    ('Postposition', 'Poimek'),
+                    ('Conjunction', 'Spójnik'),
+                    ('Interjection', 'Wykrzyknik'),
+                    ('Particle', 'Partykuła'),
+                    ('Determiner', 'Określnik'),
+                    ('Article', 'Rodzajnik'),
+                    ('AuxiliaryVerb', 'Czasownik posiłkowy'),
+                    ('ModalVerb', 'Czasownik modalny'),
+                    ('Copula', 'Łącznik'),
+                    ('Classifier', 'Klasyfikator'),
+                    ('Counter', 'Wyraz klasyfikujący'),
+                    ('Quantifier', 'Kwantyfikator'),
+                    ('Possessive', 'Wyraz dzierżawczy'),
+                    ('Demonstrative', 'Wyraz wskazujący'),
+                    ('RelativePronoun', 'Zaimek względny'),
+                    ('InterrogativePronoun', 'Zaimek pytajny'),
+                    ('ReflexivePronoun', 'Zaimek zwrotny'),
+                    ('ReciprocalPronoun', 'Zaimek wzajemny'),
+                    ('PersonalPronoun', 'Zaimek osobowy'),
+                    ('IndefinitePronoun', 'Zaimek nieokreślony'),
+                    ('NegativePronoun', 'Zaimek przeczący'),
+                    ('Converb', 'Forma czasownikowa łącząca czynności'),
+                    ('Participle', 'Imiesłów'),
+                    ('Infinitive', 'Bezokolicznik'),
+                    ('Gerund', 'Gerundium'),
+                    ('VerbalNoun', 'Rzeczownik odczasownikowy'),
+                    ('AuxiliaryParticle', 'Partykuła pomocnicza'),
+                    ('FocusParticle', 'Partykuła wyróżniająca'),
+                    ('NegationParticle', 'Partykuła przecząca'),
+                    ('DiscourseParticle', 'Partykuła dyskursywna'),
+                    ('Clitic', 'Klit yka'),
+                    ('Onomatopoeia', 'Wyraz dźwiękonaśladowczy'),
+                    ('Ideophone', 'Ideofon'),
+                    ('Abbreviation', 'Skrótowiec'),
+                    ('Symbol', 'Symbol'),
+                    ('Greeting', 'Forma powitalna'),
+                    ('Farewell', 'Forma pożegnalna'),
+                    ('Affirmation', 'Wyraz potwierdzający'),
+                    ('Negation', 'Wyraz przeczący'),
+                    ('Filler', 'Wypełniacz wypowiedzi');
+
+
+                            INSERT OR IGNORE INTO GrammaticalLibrary
                     (Category, Code, Description)
                 VALUES
                 -- Number
@@ -515,13 +563,126 @@ namespace OOP_project.Data
                 ('Other', 'AdjectiveForm', 'Forma przymiotnikowa'),
                 ('Other', 'AdverbialForm', 'Forma przysłówkowa');
 
-            ";
+                       
 
-            using var command = new SqliteCommand(sql, connection);
-            command.ExecuteNonQuery();
+                """,
+                connection))
+            {
+                command.ExecuteNonQuery();
+            }
         }
 
+        public Dictionary<string, string> ReadSymbols()
+        {
+            var symbols = new Dictionary<string, string>();
 
+            using var connection = GetConnection();
+            using var command = new SqliteCommand(
+                """
+                SELECT Symbol, Category
+                FROM AlphabetLibrary;
+                """,
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                symbols[reader.GetString(0)] =
+                    reader.GetString(1);
+            }
+
+            return symbols;
+        }
+
+        public Dictionary<string, string> ReadAlphabet()
+        {
+            var symbols = new Dictionary<string, string>();
+
+            using var connection = GetConnection();
+            using var command = new SqliteCommand(
+                """
+                SELECT Symbol, Category
+                FROM AlphabetSymbols;
+                """,
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                symbols[reader.GetString(0)] =
+                    reader.GetString(1);
+            }
+
+            return symbols;
+        }
+
+        public List<string> ReadGramaticalRoles()
+        {
+            var codes = new List<string>();
+
+            using var connection = GetConnection();
+            using var command = new SqliteCommand(
+                "SELECT Code FROM GrammaticalLibrary;",
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codes.Add(reader.GetString(0));
+            }
+
+            return codes;
+        }
+
+        public List<(string Affix, string Type)>
+            ReadAffixesWithTypes()
+        {
+            var items =
+                new List<(string Affix, string Type)>();
+
+            using var connection = GetConnection();
+            using var command = new SqliteCommand(
+                """
+                SELECT Affixes.Affix, AffixType.Name
+                FROM Affixes
+                INNER JOIN AffixType
+                    ON Affixes.AffixTypeId = AffixType.Id;
+                """,
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                items.Add((
+                    reader.GetString(0),
+                    reader.GetString(1)
+                ));
+            }
+
+            return items;
+        }
+
+        public List<string> ReadRoots()
+        {
+            var items = new List<string>();
+
+            using var connection = GetConnection();
+            using var command = new SqliteCommand(
+                "SELECT Root FROM Roots;",
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                items.Add(reader.GetString(0));
+            }
+
+            return items;
+        }
     }
-
 }
