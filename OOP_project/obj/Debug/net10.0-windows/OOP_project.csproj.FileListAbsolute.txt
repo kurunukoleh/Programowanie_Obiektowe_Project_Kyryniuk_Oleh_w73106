@@ -2,7 +2,6 @@ C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\obj\Debug\
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\obj\Debug\net10.0-windows\OOP_project_MarkupCompile.cache
-C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\obj\Debug\net10.0-windows\OOP_project_MarkupCompile.lref
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\bin\Debug\net10.0-windows\OOP_project.exe
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\bin\Debug\net10.0-windows\OOP_project.deps.json
 C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\bin\Debug\net10.0-windows\OOP_project.runtimeconfig.json
