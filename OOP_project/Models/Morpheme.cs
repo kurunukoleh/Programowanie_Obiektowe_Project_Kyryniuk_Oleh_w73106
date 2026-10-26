@@ -4,13 +4,16 @@ using System.Text;
 
 namespace OOP_project.Models
 {
-    internal abstract class Morpheme
+    public abstract class Morpheme
     {
         protected readonly Dictionary<string, string> _choose_alphabet;
 
+        private PhoneticSystem _phonetic_system;
+
         protected Morpheme(Database database)
         {
-            _choose_alphabet = database.ReadAlphabet();
+            _phonetic_system = new PhoneticSystem(database);
+            _choose_alphabet = _phonetic_system.ReadAlphabet();
         }
 
         protected string GetRandomSymbol()

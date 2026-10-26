@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -72,9 +71,9 @@ namespace OOP_project.Data
                 """
                 CREATE TABLE IF NOT EXISTS Roots (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Symbol TEXT NOT NULL
+                    Symbol TEXT NOT NULL,
+                    Translation TEXT
                 );
-                
                 """,
 
                 """
@@ -132,6 +131,18 @@ namespace OOP_project.Data
                     FOREIGN KEY (RootId)
                         REFERENCES Roots(Id)
                 );
+                """,
+
+                """
+                CREATE TABLE IF NOT EXISTS Dictionary (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Word TEXT NOT NULL,
+                    Translation TEXT NOT NULL,
+                    RootId INTEGER,
+                    CreatedAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (RootId)
+                        REFERENCES Roots(Id)
+                );
                 """
             };
 
@@ -143,6 +154,11 @@ namespace OOP_project.Data
                 command.ExecuteNonQuery();
             }
 
+
+
+
+
+
             // początkowe typy.
             using (var command = new SqliteCommand(
                 """
@@ -153,6 +169,8 @@ namespace OOP_project.Data
             {
                 command.ExecuteNonQuery();
             }
+
+
 
             // początkowa biblioteka .
             using (var command = new SqliteCommand(
@@ -566,123 +584,63 @@ namespace OOP_project.Data
                        
 
                 """,
+
+
                 connection))
             {
                 command.ExecuteNonQuery();
             }
+
+            //InitializeDatabase2();
+
         }
 
-        public Dictionary<string, string> ReadSymbols()
-        {
-            var symbols = new Dictionary<string, string>();
 
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                """
-                SELECT Symbol, Category
-                FROM AlphabetLibrary;
-                """,
-                connection);
 
-            using var reader = command.ExecuteReader();
+        //public void InitializeDatabase2()
+        //{
+        //    using var connection = GetConnection();
+        //    connection.Open();
 
-            while (reader.Read())
-            {
-                symbols[reader.GetString(0)] =
-                    reader.GetString(1);
-            }
+        //    using var command = connection.CreateCommand();
 
-            return symbols;
-        }
+        //    command.CommandText = """
+        //CREATE TABLE IF NOT EXISTS Roots (
+        //    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        //    Symbol TEXT NOT NULL
+        //);
+        //""";
 
-        public Dictionary<string, string> ReadAlphabet()
-        {
-            var symbols = new Dictionary<string, string>();
+        //    command.ExecuteNonQuery();
 
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                """
-                SELECT Symbol, Category
-                FROM AlphabetSymbols;
-                """,
-                connection);
+        //    // Додаємо Translation, якщо колонки ще немає.
+        //    command.CommandText = """
+        //PRAGMA table_info(Roots);
+        //""";
 
-            using var reader = command.ExecuteReader();
+        //    bool translationExists = false;
 
-            while (reader.Read())
-            {
-                symbols[reader.GetString(0)] =
-                    reader.GetString(1);
-            }
+        //    using (var reader = command.ExecuteReader())
+        //    {
+        //        while (reader.Read())
+        //        {
+        //            if (reader.GetString(1) == "Translation")
+        //            {
+        //                translationExists = true;
+        //                break;
+        //            }
+        //        }
+        //    }
 
-            return symbols;
-        }
+        //    if (!translationExists)
+        //    {
+        //        command.CommandText =
+        //            "ALTER TABLE Roots ADD COLUMN Translation TEXT;";
 
-        public List<string> ReadGramaticalRoles()
-        {
-            var codes = new List<string>();
+        //        command.ExecuteNonQuery();
+        //    }
+        //}
 
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Code FROM GrammaticalLibrary;",
-                connection);
 
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                codes.Add(reader.GetString(0));
-            }
-
-            return codes;
-        }
-
-        public List<(string Affix, string Type)>
-            ReadAffixesWithTypes()
-        {
-            var items =
-                new List<(string Affix, string Type)>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                """
-                SELECT Affixes.Affix, AffixType.Name
-                FROM Affixes
-                INNER JOIN AffixType
-                    ON Affixes.AffixTypeId = AffixType.Id;
-                """,
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                items.Add((
-                    reader.GetString(0),
-                    reader.GetString(1)
-                ));
-            }
-
-            return items;
-        }
-
-        public List<string> ReadRoots()
-        {
-            var items = new List<string>();
-
-            using var connection = GetConnection();
-            using var command = new SqliteCommand(
-                "SELECT Root FROM Roots;",
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                items.Add(reader.GetString(0));
-            }
-
-            return items;
-        }
     }
 }
