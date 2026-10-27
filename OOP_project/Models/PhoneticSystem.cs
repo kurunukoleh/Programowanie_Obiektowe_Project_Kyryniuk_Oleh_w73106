@@ -62,6 +62,33 @@ namespace OOP_project.Models
             return symbols;
         }
 
+        public List<AlphabetLetter> ReadSymbolsToDelete()
+        {
+            var symbols = new List<AlphabetLetter>();
+
+            using var connection = _database.GetConnection();
+            connection.Open();
+
+            using var command = new SqliteCommand(
+                @"SELECT Id, Symbol, Category
+          FROM AlphabetSymbols;",
+                connection);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                symbols.Add(new AlphabetLetter
+                {
+                    Id = reader.GetInt32(0),
+                    Symbol = reader.GetString(1),
+                    Category = reader.GetString(2)
+                });
+            }
+
+            return symbols;
+        }
+
         public void DeleteLetters(int id)
         {
             using var connection = _database.GetConnection();

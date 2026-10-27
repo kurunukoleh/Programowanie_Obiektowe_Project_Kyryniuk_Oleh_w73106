@@ -59,6 +59,41 @@ namespace OOP_project.Models
             GenerateWord(affixNumber, _rootId);
         }
 
+        public Word(
+            string text,
+            int affixIndex,
+            string previousGrammaticalRole,
+            string rootTranslation,
+            Database database,
+            AffixSystem affixSystem,
+            RootSystem rootSystem)
+                {
+                    _database = database;
+                    _affixSystem = affixSystem;
+                    _rootSystem = rootSystem;
+
+                    var affixes = _affixSystem.ReadAffixeInformation();
+
+                    if (affixIndex < 0 || affixIndex >= affixes.Count)
+                        throw new ArgumentOutOfRangeException(nameof(affixIndex));
+
+                    var selectedAffix = affixes[affixIndex];
+
+                    if (selectedAffix.Type == "Prefix")
+                        _wordText.Append(selectedAffix.Affix).Append(text);
+                    else if (selectedAffix.Type == "Suffix")
+                        _wordText.Append(text).Append(selectedAffix.Affix);
+                    else
+                        throw new NotSupportedException(
+                            $"Nieobsługiwany typ afiksu: {selectedAffix.Type}");
+
+                    GrammaticalRole = string.IsNullOrWhiteSpace(previousGrammaticalRole)
+                        ? selectedAffix.GrammaticalRoleCode
+                        : $"{previousGrammaticalRole}, {selectedAffix.GrammaticalRoleCode}";
+
+                    RootTranslation = rootTranslation;
+                }
+
         private void GenerateWord(int affixNumber, int rootId)
         {
             var affixes = _affixSystem.ReadAffixeInformation();
@@ -98,6 +133,22 @@ namespace OOP_project.Models
         {
             return _wordText.ToString();
         }
+
+        public string ReadRootTranslation(int rootId)
+        {
+            using var connection = _database.GetConnection();
+            connection.Open();
+
+            using var command = new SqliteCommand(
+                "SELECT Translation FROM Roots WHERE Id = @Id;",
+                connection);
+
+            command.Parameters.AddWithValue("@Id", rootId);
+
+            return command.ExecuteScalar()?.ToString() ?? "";
+        }
+
+
 
         public void AddWordToDictionary(string translation)
         {

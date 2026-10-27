@@ -100,5 +100,25 @@ namespace OOP_project.Models
             command.Parameters.AddWithValue("@Id", id);
             command.ExecuteNonQuery();
         }
+
+        public void UpdateRootTranslation(int rootId, string translation)
+        {
+            using var connection = _database.GetConnection();
+            connection.Open();
+
+            using var command = new SqliteCommand(
+                @"UPDATE Roots
+          SET Translation = @Translation
+          WHERE Id = @Id;",
+                connection);
+
+            command.Parameters.AddWithValue("@Translation", translation);
+            command.Parameters.AddWithValue("@Id", rootId);
+
+            int affectedRows = command.ExecuteNonQuery();
+
+            if (affectedRows == 0)
+                throw new InvalidOperationException("Root not found.");
+        }
     }
 }

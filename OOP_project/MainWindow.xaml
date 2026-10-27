@@ -7,7 +7,188 @@
         WindowStartupLocation="CenterScreen"
         Loaded="LibraryWindow_Loaded">
 
-    <Grid Margin="20">
+    <Window.Resources>
+        <SolidColorBrush x:Key="AppBackground" Color="#11131A"/>
+        <SolidColorBrush x:Key="PanelBackground" Color="#1B1F2A"/>
+        <SolidColorBrush x:Key="PanelBorder" Color="#303747"/>
+        <SolidColorBrush x:Key="TextPrimary" Color="#F1F3F9"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#A8B0C2"/>
+        <SolidColorBrush x:Key="Accent" Color="#8275F5"/>
+        <SolidColorBrush x:Key="AccentHover" Color="#978DFF"/>
+        <SolidColorBrush x:Key="InputBackground" Color="#151923"/>
+
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource AppBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="{StaticResource PanelBackground}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PanelBorder}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="Margin" Value="2,0,2,8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border x:Name="TabBorder" Background="{TemplateBinding Background}" CornerRadius="7" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="TabBorder" Property="Background" Value="{StaticResource Accent}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TabBorder" Property="Opacity" Value="0.9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{StaticResource PanelBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PanelBorder}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="#1B1F2A"/>
+            <Setter Property="AlternatingRowBackground" Value="#202532"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#303747"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#303747"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="AlternationCount" Value="2"/>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#252B3A"/>
+                        <Setter Property="Foreground" Value="#DDE2F0"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Padding" Value="12,10"/>
+                        <Setter Property="BorderBrush" Value="#303747"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Padding" Value="10,7"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#49427F"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RowStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="MinHeight" Value="34"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2A3040"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#39345F"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource InputBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="CaretBrush" Value="White"/>
+            <Setter Property="BorderBrush" Value="#3A4355"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="1"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Accent}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.55"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="{StaticResource InputBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush" Value="#3A4355"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="MinHeight" Value="36"/>
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{StaticResource PanelBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="Padding" Value="8,6"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#2B3242"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush" Value="#424B60"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="14,9"/>
+            <Setter Property="Margin" Value="0,0,8,0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#3A4358"/>
+                                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="{StaticResource Accent}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#252A38"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="24">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="11*"/>
@@ -20,10 +201,10 @@
         <TextBlock Text="Language Library"
                    FontSize="28"
                    FontWeight="Bold"
-                   Margin="0,0,0,16" Grid.ColumnSpan="2"/>
+                   Margin="0,0,0,18" Grid.ColumnSpan="2"/>
 
         <TabControl x:Name="LibraryTabs"
-                    SelectionChanged="LibraryTabs_SelectionChanged" Grid.ColumnSpan="2" Margin="0,53,0,0" Grid.RowSpan="2">
+                    SelectionChanged="LibraryTabs_SelectionChanged" Grid.Row="1" Grid.ColumnSpan="2" Margin="0" Grid.RowSpan="1">
 
             <!-- LETTERS -->
             <TabItem Header="Letters">
@@ -82,9 +263,12 @@
                     </Grid.RowDefinitions>
 
                     <DataGrid x:Name="FormsGrid"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      CanUserAddRows="False">   
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow">
+
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Word"
                             Binding="{Binding Word}"
@@ -99,6 +283,8 @@
                             Width="*" />
                         </DataGrid.Columns>
                     </DataGrid>
+
+
 
                     <StackPanel Grid.Row="1"
                     Orientation="Horizontal">
@@ -116,6 +302,15 @@
                     Click="DeleteForm_Click"
                     Padding="12,8"/>
                     </StackPanel>
+
+                    <StackPanel Grid.Column="1"
+                        Margin="8,0,0,0">
+                        <TextBlock Text="Translation"/>
+                        <TextBox x:Name="FormTranslateBox"
+                         Margin="0,4,0,0"
+                         MaxLength="200"/>
+                    </StackPanel>
+
                 </Grid>
             </TabItem>
 
@@ -129,41 +324,51 @@
                     </Grid.RowDefinitions>
 
                     <DataGrid x:Name="RootsGrid"
-                              AutoGenerateColumns="True"
-                              IsReadOnly="True"
-                              SelectionMode="Single"
-                              SelectionUnit="FullRow"
-                              CanUserAddRows="False"
-                              Margin="0,0,0,12"/>
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  CanUserAddRows="False"
+                  SelectionChanged="RootsGrid_SelectionChanged"
+                  Margin="0,0,0,12"/>
 
                     <StackPanel Grid.Row="1" Margin="0,0,0,12">
                         <TextBlock Text="Root symbol"/>
                         <TextBox x:Name="RootTextBox"
-                                 Margin="0,4,0,0"
-                                 MaxLength="200"/>
-                        <TextBox
-                                x:Name="RootTranslateBox"
-                                Width="150"
-                                Height="30"
-                                Margin="5"
-                                ToolTip="Translation of root"/>     
+                     Margin="0,4,0,0"
+                     MaxLength="200"/>
+
+                        <TextBlock Text="Root translation"
+                       Margin="0,8,0,0"/>
+                        <TextBox x:Name="RootTranslateBox"
+                     Margin="0,4,0,0"
+                     MaxLength="200"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Orientation="Horizontal">
                         <Button Content="Add"
-                                Click="AddRoot_Click"
-                                Padding="18,8"
-                                Margin="0,0,8,0"/>
+                    Click="AddRoot_Click"
+                    Padding="18,8"
+                    Margin="0,0,8,0"/>
+
+                        <Button Content="Update translation"
+                    Click="UpdateRootTranslation_Click"
+                    Padding="12,8"
+                    Margin="0,0,8,0"/>
+
                         <Button Content="Delete selected"
-                                Click="DeleteRoot_Click"
-                                Padding="18,8"
-                                Margin="0,0,8,0"/>
+                    Click="DeleteRoot_Click"
+                    Padding="18,8"
+                    Margin="0,0,8,0"/>
+
                         <Button Content="Generate roots"
-                                Click="GenerateRoots_Click"
-                                Padding="18,8"/>
+                    Click="GenerateRoots_Click"
+                    Padding="18,8"
+                    Margin="0,0,8,0"/>
+
                         <Button Content="Generate first-level forms"
-                                Click="GenerateForms_Click"
-                                Padding="12,8"/>
+                    Click="GenerateForms_Click"
+                    Padding="12,8"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

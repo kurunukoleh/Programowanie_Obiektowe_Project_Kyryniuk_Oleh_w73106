@@ -114,8 +114,6 @@ namespace OOP_project.Data
                     AffixTypeId INTEGER NOT NULL,
                     FOREIGN KEY (PartOfSpeechId)
                         REFERENCES PartOfSpeech(Id),
-                    FOREIGN KEY (GrammaticalRoleCode)
-                        REFERENCES GrammaticalLibrary(Code),
                     FOREIGN KEY (AffixTypeId)
                         REFERENCES AffixType(Id)
                 );
@@ -594,6 +592,29 @@ namespace OOP_project.Data
             //InitializeDatabase2();
 
         }
+
+
+        public int GetRowCount(string tableName)
+        {
+            string[] allowedTables =
+            {
+        "AlphabetLibrary",
+        "Affixes"
+    };
+
+            if (!allowedTables.Contains(tableName))
+                throw new ArgumentException("Nieznana tabela.");
+
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = new SqliteCommand(
+                $"SELECT COUNT(*) FROM {tableName};",
+                connection);
+
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
 
 
 
