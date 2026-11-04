@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Data.Sqlite;
 using OOP_project.Data;
+using OOP_project.Systems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,43 +23,7 @@ namespace OOP_project.Models
         private readonly StringBuilder _wordText = new StringBuilder();
         private readonly int _rootId;
 
-        public Word(
-            int affixNumber,
-            int rootId,
-            Database database,
-            AffixSystem affixSystem,
-            RootSystem rootSystem)
-        {
-            _database = database;
-            _affixSystem = affixSystem;
-            _rootSystem = rootSystem;
-            _rootId = rootId;
-
-            GenerateWord(affixNumber, rootId);
-        }
-
-        public Word(
-            int affixNumber,
-            Database database,
-            AffixSystem affixSystem,
-            RootSystem rootSystem)
-        {
-            _database = database;
-            _affixSystem = affixSystem;
-            _rootSystem = rootSystem;
-
-            var roots = _rootSystem.ReadRoots();
-
-            if (roots.Count == 0)
-                throw new InvalidOperationException("Brak korzeni w bazie danych.");
-
-            var root = roots.ElementAt(Random.Shared.Next(roots.Count));
-
-            _rootId = root.Key;
-
-            GenerateWord(affixNumber, _rootId);
-        }
-
+        
         public Word(
             string text,
             int affixIndex,
@@ -72,20 +37,22 @@ namespace OOP_project.Models
                     _affixSystem = affixSystem;
                     _rootSystem = rootSystem;
 
-                    var affixes = _affixSystem.ReadAffixeInformation();
+                    
+
+            var affixes = _affixSystem.readtable();
 
                     if (affixIndex < 0 || affixIndex >= affixes.Count)
                         throw new ArgumentOutOfRangeException(nameof(affixIndex));
 
                     var selectedAffix = affixes[affixIndex];
 
-                    if (selectedAffix.Type == "Prefix")
+                    if (selectedAffix.getType() == "Prefix")
                         _wordText.Append(selectedAffix.Affix).Append(text);
-                    else if (selectedAffix.Type == "Suffix")
+                    else if (selectedAffix.getType() == "Suffix")
                         _wordText.Append(text).Append(selectedAffix.Affix);
                     else
                         throw new NotSupportedException(
-                            $"Nieobsługiwany typ afiksu: {selectedAffix.Type}");
+                            $"Nieobsługiwany typ afiksu: {selectedAffix.AffixTypeId}");
 
                     GrammaticalRole = string.IsNullOrWhiteSpace(previousGrammaticalRole)
                         ? selectedAffix.GrammaticalRoleCode
@@ -94,40 +61,38 @@ namespace OOP_project.Models
                     RootTranslation = rootTranslation;
                 }
 
-        private void GenerateWord(int affixNumber, int rootId)
+        public Word(
+    RootModel rootModel,
+    AffixModel affixModel,
+    Database database,
+    AffixSystem affixSystem,
+    RootSystem rootSystem)
         {
-            var affixes = _affixSystem.ReadAffixeInformation();
-            var roots = _rootSystem.ReadRoots();
+            if (rootModel == null)
+                throw new ArgumentNullException(nameof(rootModel));
 
-            if (!roots.TryGetValue(rootId, out string? root))
-                throw new ArgumentException(
-                    "Nie znaleziono korzenia o podanym ID.",
-                    nameof(rootId));
+            if (affixModel == null)
+                throw new ArgumentNullException(nameof(affixModel));
 
-            if (affixNumber < 0 || affixNumber >= affixes.Count)
-                throw new ArgumentOutOfRangeException(
-                    nameof(affixNumber),
-                    "Nieprawidłowy indeks afiksu.");
+            _database = database;
+            _affixSystem = affixSystem;
+            _rootSystem = rootSystem;
+            _rootId = rootModel.Id;
 
-            var selectedAffix = affixes[affixNumber];
-            GrammaticalRole = selectedAffix.GrammaticalRoleCode;
-
-            if (selectedAffix.Type == "Prefix")
-            {
-                _wordText.Append(selectedAffix.Affix);
-                _wordText.Append(root);
-            }
-            else if (selectedAffix.Type == "Suffix")
-            {
-                _wordText.Append(root);
-                _wordText.Append(selectedAffix.Affix);
-            }
+            if (affixModel.getType() == "Prefix")
+                _wordText.Append(affixModel.Affix).Append(rootModel.Symbol);
+            else if (affixModel.getType() == "Suffix")
+                _wordText.Append(rootModel.Symbol).Append(affixModel.Affix);
             else
-            {
                 throw new NotSupportedException(
-                    $"Nieobsługiwany typ afiksu: {selectedAffix.Type}");
-            }
+                    $"Nieobsługiwany typ afiksu: {affixModel.AffixTypeId}");
+
+            GrammaticalRole = affixModel.GrammaticalRoleCode;
+            RootTranslation = rootModel.Translation;
         }
+
+
+
 
         public string ReturnWord()
         {

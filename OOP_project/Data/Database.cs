@@ -589,7 +589,7 @@ namespace OOP_project.Data
                 command.ExecuteNonQuery();
             }
 
-            //InitializeDatabase2();
+            
 
         }
 
@@ -618,49 +618,7 @@ namespace OOP_project.Data
 
 
 
-        //public void InitializeDatabase2()
-        //{
-        //    using var connection = GetConnection();
-        //    connection.Open();
-
-        //    using var command = connection.CreateCommand();
-
-        //    command.CommandText = """
-        //CREATE TABLE IF NOT EXISTS Roots (
-        //    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-        //    Symbol TEXT NOT NULL
-        //);
-        //""";
-
-        //    command.ExecuteNonQuery();
-
-        //    // Додаємо Translation, якщо колонки ще немає.
-        //    command.CommandText = """
-        //PRAGMA table_info(Roots);
-        //""";
-
-        //    bool translationExists = false;
-
-        //    using (var reader = command.ExecuteReader())
-        //    {
-        //        while (reader.Read())
-        //        {
-        //            if (reader.GetString(1) == "Translation")
-        //            {
-        //                translationExists = true;
-        //                break;
-        //            }
-        //        }
-        //    }
-
-        //    if (!translationExists)
-        //    {
-        //        command.CommandText =
-        //            "ALTER TABLE Roots ADD COLUMN Translation TEXT;";
-
-        //        command.ExecuteNonQuery();
-        //    }
-        //}
+        
 
 
     }

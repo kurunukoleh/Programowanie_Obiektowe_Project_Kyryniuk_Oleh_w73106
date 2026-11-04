@@ -2,6 +2,7 @@
 using OOP_project;
 using OOP_project.Data;
 using OOP_project.Models;
+using OOP_project.Systems;
 using System.Data;
 using System.Linq;
 using System.Transactions;
@@ -77,54 +78,26 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             LoadRoots();
             LoadAlphabet();
             LoadAffixes();
+            LoadDictionary();
         }
 
 
 
+       
+
         private void LoadRoots()
         {
-            using var connection = _database.GetConnection();
-            connection.Open();
-
-            using var command = new SqliteCommand(
-                "SELECT Id, Symbol, Translation FROM Roots;",
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            var roots = new System.Data.DataTable();
-            roots.Load(reader);
-
-            RootsGrid.ItemsSource = roots.DefaultView;
+            RootsGrid.ItemsSource = _rootSystem.readtable();
         }
 
         private void LoadAffixes()
         {
-            using var connection = _database.GetConnection();
-            connection.Open();
-
-            using var command = new SqliteCommand(
-                @"SELECT
-              Id,
-              Affix,
-              PartOfSpeechId,
-              GrammaticalRoleCode,
-              AffixTypeId
-          FROM Affixes;",
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            var affixes = new System.Data.DataTable();
-            affixes.Load(reader);
-
-            AffixesGrid.ItemsSource = affixes.DefaultView;
+            AffixesGrid.ItemsSource = _affixSystem.readtable();
         }
 
         private void LoadAlphabet()
         {
-            LettersGrid.ItemsSource = _phonetic_system.ReadSymbolsToDelete()
-;
+            LettersGrid.ItemsSource = _phonetic_system.readtable();
         }
 
 
@@ -140,17 +113,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             FormsGrid.ItemsSource = forms;
         }
 
-        //private void LoadSecondForms(string text)
-        //{
-        //    var forms = _wordManager.ReturnWordFormViewText(text);
-
-        //    MessageBox.Show(
-        //        $"Tekst: [{text}]\n" +
-        //        $"Liczba form: {forms.Count}");
-
-        //    FormsGrid.ItemsSource = null;
-        //    FormsGrid.ItemsSource = forms;
-        //}
+        
 
         private void LoadDictionary()
         {
@@ -194,7 +157,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
             try
             {
-                _rootSystem.AddRoot(root, translation);
+                _rootSystem.insert(new RootModel(0, root, translation));
 
                 RootTextBox.Clear();
                 RootTranslateBox.Clear();
@@ -209,25 +172,15 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private void DeleteRoot_Click(object sender, RoutedEventArgs e)
         {
-            if (RootsGrid.SelectedItem is not System.Data.DataRowView selected)
+            if (RootsGrid.SelectedItem is not RootModel selectedRoot)
             {
                 MessageBox.Show("Wybierz korzeń do usunięcia.");
                 return;
             }
 
-            int rootId = Convert.ToInt32(selected["Id"]);
+            _rootSystem.delete(selectedRoot.Id);
 
-            try
-            {
-                _rootSystem.DeleteRoot(rootId);
-                LoadRoots();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Nie można usunąć korzenia.\n" + ex.Message,
-                    "Błąd");
-            }
+            LoadRoots();
         }
 
 
@@ -249,7 +202,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
             try
             {
-                _affixSystem.AddAffix(affix, partOfSpeechId, grammaticalRoleCode, affixTypeId);
+                _affixSystem.insert(new AffixModel(0, affix, int.Parse(partOfSpeechId), grammaticalRoleCode, int.Parse(affixTypeId)));
 
                 AffixTextBox.Clear();
                 PartOfSpeechIdBox.Clear();
@@ -267,24 +220,17 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private void DeleteAffix_Click(object sender, RoutedEventArgs e)
         {
-            if (AffixesGrid.SelectedItem is not DataRowView selected)
+            if (AffixesGrid.SelectedItem is not AffixModel selectedAffix)
             {
                 MessageBox.Show("Wybierz afiks do usunięcia.");
                 return;
             }
 
-            int id = Convert.ToInt32(selected["Id"]);
+            _affixSystem.delete(selectedAffix.Id);
 
-            try
-            {
-                _affixSystem.DeleteAffixes(id);
-                LoadAffixes();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Błąd");
-            }
+            LoadAffixes();
         }
+
         private void AddLetter_Click(object sender, RoutedEventArgs e) 
         {
             string symbol = LetterTextBox.Text.Trim();
@@ -299,7 +245,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
             try
             {
-                _phonetic_system.AddSymbol(symbol, category);
+                _phonetic_system.insert(new AlphabetLetter(0, symbol, category));
 
                 LetterTextBox.Clear();
 
@@ -323,7 +269,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
             try
             {
-                _phonetic_system.DeleteLetters(selected.Id);
+                _phonetic_system.delete(selected.Id);
                 LoadAlphabet();
             }
             catch (Exception ex)
@@ -336,7 +282,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             object sender,
             RoutedEventArgs e)
                 {
-                    if (FormsGrid.SelectedItem is not WordFormView selected)
+                    if (FormsGrid.SelectedItem is not WordModel selected)
                     {
                         MessageBox.Show("Wybierz formę do zapisania.");
                         return;
@@ -369,20 +315,22 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
                     {
                         MessageBox.Show(ex.Message, "Błąd");
                     }
-                }
+
+                    LoadDictionary();
+        }
 
 
 
 
         private void DeleteForm_Click(object sender, RoutedEventArgs e)
         {
-            if (FormsGrid.SelectedItem is not WordFormView selected)
+            if (FormsGrid.SelectedItem is not WordModel selected)
             {
                 MessageBox.Show("Wybierz słowo.");
                 return;
             }
 
-            var forms = FormsGrid.ItemsSource as List<WordFormView>;
+            var forms = FormsGrid.ItemsSource as List<WordModel>;
 
             if (forms == null)
                 return;
@@ -419,6 +367,8 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             command.ExecuteNonQuery();
 
             MessageBox.Show("Słowo zostało dodane.");
+
+            LoadDictionary();
         }
 
         private void DeleteWord_Click(object sender, RoutedEventArgs e)
@@ -458,7 +408,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
         private void GenerateFormsFromForm_Click(
         object sender, RoutedEventArgs e)
             {
-                if (FormsGrid.SelectedItem is not WordFormView selected)
+                if (FormsGrid.SelectedItem is not WordModel selected)
                 {
                     MessageBox.Show("Wybierz słowo.");
                     return;
@@ -472,13 +422,13 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private void GenerateForms_Click(object sender, RoutedEventArgs e)
         {
-            if (RootsGrid.SelectedItem is not System.Data.DataRowView selected)
+            if (RootsGrid.SelectedItem is not RootModel selected)
             {
                 MessageBox.Show("Wybierz korzeń.");
                 return;
             }
 
-            int rootId = Convert.ToInt32(selected["Id"]);
+            int rootId = selected.Id;
 
             try
             {
@@ -486,46 +436,40 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Błąd");
+                MessageBox.Show(ex.ToString(), "Błąd");
             }
         }
 
-        private void UpdateRootTranslation_Click(
-            object sender,
-            RoutedEventArgs e)
-                {
-                    if (RootsGrid.SelectedItem is not DataRowView selected)
-                    {
-                        MessageBox.Show("Wybierz korzeń.");
-                        return;
-                    }
+        private void UpdateRootTranslation_Click(object sender, RoutedEventArgs e)
+        {
+            if (RootsGrid.SelectedItem is not RootModel selected)
+            {
+                MessageBox.Show("Wybierz korzeń.");
+                return;
+            }
 
-                    string translation = RootTranslateBox.Text.Trim();
+            string translation = RootTranslateBox.Text.Trim();
 
-                    if (string.IsNullOrWhiteSpace(translation))
-                    {
-                        MessageBox.Show("Wprowadź tłumaczenie.");
-                        return;
-                    }
+            if (string.IsNullOrWhiteSpace(translation))
+            {
+                MessageBox.Show("Wprowadź tłumaczenie.");
+                return;
+            }
 
-                    int rootId = Convert.ToInt32(selected["Id"]);
+            try
+            {
+                _rootSystem.update(
+                    new RootModel(selected.Id, selected.Symbol, translation));
 
-                    try
-                    {
-                        _rootSystem.UpdateRootTranslation(rootId, translation);
+                LoadRoots();
 
-                        LoadRoots();
-
-                        MessageBox.Show("Translation updated.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Błąd");
-                    }
-                }
-
-
-
+                MessageBox.Show("Translation updated.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Błąd");
+            }
+        }
 
 
         private void GenerateRoots_Click(object sender, RoutedEventArgs e) 

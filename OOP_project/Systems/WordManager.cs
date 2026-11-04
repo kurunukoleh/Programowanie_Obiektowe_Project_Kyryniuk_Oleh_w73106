@@ -1,9 +1,10 @@
 ﻿using Microsoft.Data.Sqlite;
 using OOP_project.Data;
+using OOP_project.Models;
 using System;
 using System.Collections.Generic;
 
-namespace OOP_project.Models
+namespace OOP_project.Systems
 {
     public class WordManager
     {
@@ -21,43 +22,29 @@ namespace OOP_project.Models
             _root_system = rootSystem;
         }
 
-        public List<string> ReturnWordList(int rootId)
+        
+
+
+        public List<WordModel> ReturnWordFormView(int rootId)
         {
-            var forms = new List<string>();
-            var affixes = _affix_system.ReadAffixeInformation();
+            var forms = new List<WordModel>();
+            var affixes = _affix_system.readtable();
+            var root = _root_system.GetRootById(rootId);
 
             foreach (var affix in affixes)
             {
-                int index = affixes.IndexOf(affix);
 
                 var word = new Word(
-                    index,
-                    rootId,
+                    root,
+                    affix,
                     _database,
                     _affix_system,
                     _root_system);
 
-                forms.Add(word.ReturnWord());
-            }
-
-            return forms;
-        }
-
-
-        public List<WordFormView> ReturnWordFormView(int rootId)
-        {
-            var forms = new List<WordFormView>();
-            var affixes = _affix_system.ReadAffixeInformation();
-
-            for (int i = 0; i < affixes.Count; i++)
-            {
-                var word = new Word(
-                    i, rootId, _database, _affix_system, _root_system);
-
-                forms.Add(new WordFormView
+                forms.Add(new WordModel
                 {
                     Word = word.WordText,
-                    RootTranslation = word.ReadRootTranslation(rootId),
+                    RootTranslation = word.RootTranslation,
                     GrammaticalRole = word.GrammaticalRole
                 });
             }
@@ -65,13 +52,19 @@ namespace OOP_project.Models
             return forms;
         }
 
-        public List<WordFormView> ReturnWordFormViewText(
+
+
+
+
+
+
+        public List<WordModel> ReturnWordFormViewText(
             string text,
             string previousGrammaticalRole,
             string rootTranslation)
                 {
-                    var forms = new List<WordFormView>();
-                    var affixes = _affix_system.ReadAffixeInformation();
+                    var forms = new List<WordModel>();
+                    var affixes = _affix_system.readtable();
 
                     for (int i = 0; i < affixes.Count; i++)
                     {
@@ -84,7 +77,7 @@ namespace OOP_project.Models
                             _affix_system,
                             _root_system);
 
-                        forms.Add(new WordFormView
+                        forms.Add(new WordModel
                         {
                             Word = word.WordText,
                             RootTranslation = word.RootTranslation,

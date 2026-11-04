@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OOP_project.Models
+namespace OOP_project.other
 {
     public class Language
     {

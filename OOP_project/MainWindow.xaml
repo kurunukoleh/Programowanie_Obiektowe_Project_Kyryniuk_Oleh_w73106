@@ -286,31 +286,42 @@
 
 
 
-                    <StackPanel Grid.Row="1"
-                    Orientation="Horizontal">
-                        <Button Content="Generate next-level forms"
-                    Click="GenerateFormsFromForm_Click"
-                    Padding="12,8"
-                    Margin="0,0,8,0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                        <Button Content="Add selected form to dictionary"
-                    Click="AddForm_Click"
-                    Padding="12,8"
-                    Margin="0,0,8,0"/>
+                        <StackPanel Grid.Column="0"
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
 
-                        <Button Content="Delete selected"
-                    Click="DeleteForm_Click"
-                    Padding="12,8"/>
-                    </StackPanel>
+                            <Button Content="Generate next-level forms"
+                Click="GenerateFormsFromForm_Click"
+                Padding="12,8"
+                Margin="0,0,8,0"/>
 
-                    <StackPanel Grid.Column="1"
-                        Margin="8,0,0,0">
-                        <TextBlock Text="Translation"/>
-                        <TextBox x:Name="FormTranslateBox"
-                         Margin="0,4,0,0"
-                         MaxLength="200"/>
-                    </StackPanel>
+                            <Button Content="Add selected form to dictionary"
+                Click="AddForm_Click"
+                Padding="12,8"
+                Margin="0,0,8,0"/>
 
+                            <Button Content="Delete selected"
+                Click="DeleteForm_Click"
+                Padding="12,8"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+                Margin="12,0,0,0"
+                VerticalAlignment="Center">
+
+                            <TextBlock Text="Translation"/>
+
+                            <TextBox x:Name="FormTranslateBox"
+                 Margin="0,4,0,0"
+                 MaxLength="200"/>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </TabItem>
 
