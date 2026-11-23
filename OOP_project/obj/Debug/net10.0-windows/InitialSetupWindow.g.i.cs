@@ -68,7 +68,7 @@ namespace OOP_project {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/OOP_project;V1.0.0.0;component/initialsetupwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/OOP_project;component/initialsetupwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\InitialSetupWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

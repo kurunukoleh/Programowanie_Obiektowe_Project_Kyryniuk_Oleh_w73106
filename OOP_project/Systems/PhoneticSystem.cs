@@ -23,7 +23,7 @@ namespace OOP_project.Systems
             var symbols = new List<AlphabetLetter>();
 
             using var connection = _database.GetConnection();
-            connection.Open();
+            
 
             using var command = new SqliteCommand(
                 "SELECT Id, Symbol, Category FROM AlphabetLibrary;",
@@ -110,7 +110,7 @@ namespace OOP_project.Systems
         public void delete(int Model_ID)
         {
             using var connection = _database.GetConnection();
-            connection.Open();
+            
             using var command = new SqliteCommand(
                 "DELETE FROM AlphabetSymbols WHERE Id = @Id;",
                 connection);
@@ -124,7 +124,7 @@ namespace OOP_project.Systems
             var symbols = new List<AlphabetLetter>();
 
             using var connection = _database.GetConnection();
-            connection.Open();
+            
 
             using var command = new SqliteCommand(
                 @"SELECT*

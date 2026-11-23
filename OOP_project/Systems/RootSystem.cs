@@ -25,7 +25,7 @@ namespace OOP_project.Systems
                     "Illość nie może być mnieksz za zero.");
 
             using var connection = _database.GetConnection();
-            connection.Open();
+            
 
             using var transaction = connection.BeginTransaction();
 
@@ -51,7 +51,7 @@ namespace OOP_project.Systems
         public RootModel GetRootById(int id)
         {
             using var connection = _database.GetConnection();
-            connection.Open();
+            
 
             using var command = new SqliteCommand(
                 "SELECT Id, Symbol, Translation FROM Roots WHERE Id = @Id;",
@@ -79,7 +79,7 @@ namespace OOP_project.Systems
         public void delete(int Model_ID)
         {
             using var connection = _database.GetConnection();
-            connection.Open();
+            
 
             using var command = new SqliteCommand(
                 "DELETE FROM Roots WHERE Id = @Id;",
@@ -94,7 +94,7 @@ namespace OOP_project.Systems
         {
             var items = new List<RootModel>();
             using var connection = _database.GetConnection();
-            connection.Open();
+            
             using var command = new SqliteCommand(
                 "SELECT Id, Symbol, Translation FROM Roots;",
                 connection);
@@ -114,7 +114,7 @@ namespace OOP_project.Systems
             if (model is not RootModel rootModel)
                 throw new ArgumentException("Nieprawidłowy typ modelu.");
             using var connection = _database.GetConnection();
-            connection.Open();
+            
             using var command = new SqliteCommand(
                 @"INSERT INTO Roots (Symbol, Translation)
           VALUES (@Symbol, @Translation);",
@@ -129,7 +129,7 @@ namespace OOP_project.Systems
             if (model is not RootModel rootModel)
                 throw new ArgumentException("Nieprawidłowy typ modelu.");
             using var connection = _database.GetConnection();
-            connection.Open();
+            
             using var command = new SqliteCommand(
                 @"UPDATE Roots
           SET Symbol = @Symbol, Translation = @Translation

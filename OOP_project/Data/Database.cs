@@ -11,27 +11,44 @@ namespace OOP_project.Data
 
         public Database()
         {
-            string dbPath =
-                @"C:\Users\Bebra228\Desktop\project programming\OOP_project\OOP_project\Data\LuinguaForge.db";
+            
+            string appDataPath = Environment.GetFolderPath(
+                Environment.SpecialFolder.LocalApplicationData
+            );
 
-            Directory.CreateDirectory(
-                Path.GetDirectoryName(dbPath)!);
+            
+            string dbDirectory = Path.Combine(
+                appDataPath,
+                "LinguaForge"
+            );
+
+            
+            Directory.CreateDirectory(dbDirectory);
+
+           
+            string dbPath = Path.Combine(
+                dbDirectory,
+                "LinguaForge.db"
+            );
 
             _connectionString = $"Data Source={dbPath}";
         }
 
         public string DatabasePath =>
             new SqliteConnectionStringBuilder(
-                _connectionString).DataSource;
+                _connectionString
+            ).DataSource;
 
         public SqliteConnection GetConnection()
         {
-            var connection =
-                new SqliteConnection(_connectionString);
+            var connection = new SqliteConnection(
+                _connectionString
+            );
 
             connection.Open();
 
             using var command = connection.CreateCommand();
+
             command.CommandText = "PRAGMA foreign_keys = ON;";
             command.ExecuteNonQuery();
 
@@ -594,6 +611,8 @@ namespace OOP_project.Data
         }
 
 
+
+
         public int GetRowCount(string tableName)
         {
             string[] allowedTables =
@@ -606,7 +625,6 @@ namespace OOP_project.Data
                 throw new ArgumentException("Nieznana tabela.");
 
             using var connection = GetConnection();
-            connection.Open();
 
             using var command = new SqliteCommand(
                 $"SELECT COUNT(*) FROM {tableName};",
@@ -618,7 +636,9 @@ namespace OOP_project.Data
 
 
 
-        
+
+
+
 
 
     }

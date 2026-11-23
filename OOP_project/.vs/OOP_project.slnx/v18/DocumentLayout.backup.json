@@ -3,88 +3,100 @@
   "WorkspaceRootPath": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\wordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\wordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\rootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\rootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\affixmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\affixmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\phoneticsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\phoneticsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\dictionarysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\dictionarysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\i_crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\i_crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\affixsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\affixsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\generators\\morpheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:generators\\morpheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\rootmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\rootmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\wordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\wordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\word.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\alphabetletter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\alphabetletter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\other\\granaticalmeaning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:other\\granaticalmeaning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\affixmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\affixmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\other\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:other\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\affixsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\affixsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\initialsetupwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:initialsetupwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\wordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\wordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\initialsetupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:initialsetupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\worddictionarymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\worddictionarymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\wordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\wordmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\rootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\rootsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\systems\\phoneticsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:systems\\phoneticsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\generators\\morpheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:generators\\morpheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\other\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:other\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\other\\granaticalmeaning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:other\\granaticalmeaning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\oop_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:oop_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\initialsetupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:initialsetupwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|c:\\users\\bebra228\\desktop\\project programming\\oop_project\\oop_project\\initialsetupwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2E7E0B5-EF6B-7688-37D2-5356AF19BCFD}|OOP_project.csproj|solutionrelative:initialsetupwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,17 +106,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Word.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Word.cs",
               "RelativeDocumentMoniker": "Models\\Word.cs",
               "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Word.cs",
               "RelativeToolTip": "Models\\Word.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAcwEYAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAhwFMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-21T16:24:13.931Z",
               "IsPinned": true,
@@ -112,136 +124,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAC4BAAAAAAAAAAAiwD4BAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAHYBAAAAAAAAAAAgwJQBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-22T13:49:34.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RootSystem.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\RootSystem.cs",
-              "RelativeDocumentMoniker": "Systems\\RootSystem.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\RootSystem.cs",
-              "RelativeToolTip": "Systems\\RootSystem.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAGoAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T14:59:02.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-22T13:53:55.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AffixModel.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\AffixModel.cs",
-              "RelativeDocumentMoniker": "Models\\AffixModel.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\AffixModel.cs",
-              "RelativeToolTip": "Models\\AffixModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-03T17:56:38.899Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Database.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Data\\Database.cs",
-              "RelativeDocumentMoniker": "Data\\Database.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Data\\Database.cs",
-              "RelativeToolTip": "Data\\Database.cs",
-              "ViewState": "AgIAAFACAAAAAAAAAAAuwGwCAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T09:13:10.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WordManager.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\WordManager.cs",
-              "RelativeDocumentMoniker": "Systems\\WordManager.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\WordManager.cs",
-              "RelativeToolTip": "Systems\\WordManager.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwB8AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T15:48:13.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PhoneticSystem.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\PhoneticSystem.cs",
-              "RelativeDocumentMoniker": "Systems\\PhoneticSystem.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\PhoneticSystem.cs",
-              "RelativeToolTip": "Systems\\PhoneticSystem.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAswK0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T09:13:43.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "I_CRUD.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\I_CRUD.cs",
-              "RelativeDocumentMoniker": "Systems\\I_CRUD.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\I_CRUD.cs",
-              "RelativeToolTip": "Systems\\I_CRUD.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-03T14:04:45.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AffixSystem.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\AffixSystem.cs",
-              "RelativeDocumentMoniker": "Systems\\AffixSystem.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\AffixSystem.cs",
-              "RelativeToolTip": "Systems\\AffixSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T14:59:37.575Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Morpheme.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Generators\\Morpheme.cs",
-              "RelativeDocumentMoniker": "Generators\\Morpheme.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Generators\\Morpheme.cs",
-              "RelativeToolTip": "Generators\\Morpheme.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAIA/wBYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T14:43:24.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "RootModel.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\RootModel.cs",
               "RelativeDocumentMoniker": "Models\\RootModel.cs",
@@ -254,33 +150,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "WordModel.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordModel.cs",
-              "RelativeDocumentMoniker": "Models\\WordModel.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordModel.cs",
-              "RelativeToolTip": "Models\\WordModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-26T18:02:12.521Z",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-22T13:53:55.688Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Model.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Model.cs",
-              "RelativeDocumentMoniker": "Models\\Model.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Model.cs",
-              "RelativeToolTip": "Models\\Model.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "I_CRUD.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\I_CRUD.cs",
+              "RelativeDocumentMoniker": "Systems\\I_CRUD.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\I_CRUD.cs",
+              "RelativeToolTip": "Systems\\I_CRUD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-03T14:08:09.299Z",
+              "WhenOpened": "2026-11-03T14:04:45.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
+              "Title": "DictionarySystem.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\DictionarySystem.cs",
+              "RelativeDocumentMoniker": "Systems\\DictionarySystem.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\DictionarySystem.cs*",
+              "RelativeToolTip": "Systems\\DictionarySystem.cs*",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwCcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T17:46:38.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "AlphabetLetter.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\AlphabetLetter.cs",
               "RelativeDocumentMoniker": "Models\\AlphabetLetter.cs",
@@ -293,66 +201,205 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GranaticalMeaning.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\GranaticalMeaning.cs",
-              "RelativeDocumentMoniker": "other\\GranaticalMeaning.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\GranaticalMeaning.cs",
-              "RelativeToolTip": "other\\GranaticalMeaning.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "AffixModel.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\AffixModel.cs",
+              "RelativeDocumentMoniker": "Models\\AffixModel.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\AffixModel.cs",
+              "RelativeToolTip": "Models\\AffixModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-21T11:50:19.25Z"
+              "WhenOpened": "2026-11-03T17:56:38.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AffixSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\AffixSystem.cs",
+              "RelativeDocumentMoniker": "Systems\\AffixSystem.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\AffixSystem.cs",
+              "RelativeToolTip": "Systems\\AffixSystem.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwJEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T14:59:37.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WordModel.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordModel.cs",
+              "RelativeDocumentMoniker": "Models\\WordModel.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordModel.cs",
+              "RelativeToolTip": "Models\\WordModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T18:02:12.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WordDictionaryModel.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordDictionaryModel.cs",
+              "RelativeDocumentMoniker": "Models\\WordDictionaryModel.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\WordDictionaryModel.cs",
+              "RelativeToolTip": "Models\\WordDictionaryModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T17:50:14.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "WordManager.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\WordManager.cs",
+              "RelativeDocumentMoniker": "Systems\\WordManager.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\WordManager.cs",
+              "RelativeToolTip": "Systems\\WordManager.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAswDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T15:48:13.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Model.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Model.cs",
+              "RelativeDocumentMoniker": "Models\\Model.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Models\\Model.cs",
+              "RelativeToolTip": "Models\\Model.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-03T14:08:09.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Data\\Database.cs",
+              "RelativeDocumentMoniker": "Data\\Database.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Data\\Database.cs",
+              "RelativeToolTip": "Data\\Database.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAJwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T09:13:10.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RootSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\RootSystem.cs",
+              "RelativeDocumentMoniker": "Systems\\RootSystem.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\RootSystem.cs",
+              "RelativeToolTip": "Systems\\RootSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T14:59:02.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PhoneticSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\PhoneticSystem.cs",
+              "RelativeDocumentMoniker": "Systems\\PhoneticSystem.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Systems\\PhoneticSystem.cs",
+              "RelativeToolTip": "Systems\\PhoneticSystem.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAkwAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T09:13:43.373Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
+              "Title": "Morpheme.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Generators\\Morpheme.cs",
+              "RelativeDocumentMoniker": "Generators\\Morpheme.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\Generators\\Morpheme.cs",
+              "RelativeToolTip": "Generators\\Morpheme.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T14:43:24.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-23T19:15:18.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Language.cs",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\Language.cs",
               "RelativeDocumentMoniker": "other\\Language.cs",
               "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\Language.cs",
               "RelativeToolTip": "other\\Language.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-20T09:13:54.979Z"
+              "WhenOpened": "2026-10-20T09:13:54.979Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
+              "Title": "GranaticalMeaning.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\GranaticalMeaning.cs",
+              "RelativeDocumentMoniker": "other\\GranaticalMeaning.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\other\\GranaticalMeaning.cs",
+              "RelativeToolTip": "other\\GranaticalMeaning.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T11:50:19.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "OOP_project.csproj",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\OOP_project.csproj",
+              "RelativeDocumentMoniker": "OOP_project.csproj",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\OOP_project.csproj",
+              "RelativeToolTip": "OOP_project.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-23T14:11:48.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "InitialSetupWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml",
               "RelativeDocumentMoniker": "InitialSetupWindow.xaml",
               "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml",
               "RelativeToolTip": "InitialSetupWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-27T13:28:27.042Z"
+              "WhenOpened": "2026-10-27T13:28:27.042Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "InitialSetupWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml.cs",
-              "RelativeDocumentMoniker": "InitialSetupWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml.cs",
-              "RelativeToolTip": "InitialSetupWindow.xaml.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAYwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T13:29:09.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T19:15:18.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -361,6 +408,18 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-10-23T19:41:37.151Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "InitialSetupWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml.cs",
+              "RelativeDocumentMoniker": "InitialSetupWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Bebra228\\Desktop\\project programming\\OOP_project\\OOP_project\\InitialSetupWindow.xaml.cs",
+              "RelativeToolTip": "InitialSetupWindow.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T13:29:09.915Z"
             }
           ]
         }

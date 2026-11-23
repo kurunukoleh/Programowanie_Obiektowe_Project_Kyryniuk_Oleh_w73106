@@ -58,7 +58,7 @@ namespace OOP_project.Systems
 
 
 
-        public List<WordModel> ReturnWordFormViewText(
+        public List<WordModel> ReturnWordFormView(
             string text,
             string previousGrammaticalRole,
             string rootTranslation)
@@ -94,7 +94,7 @@ namespace OOP_project.Systems
         int? rootId)
             {
                 using var connection = _database.GetConnection();
-                connection.Open();
+                
 
                 using var command = new SqliteCommand(
                     @"INSERT INTO Dictionary (Word, Translation, RootId)

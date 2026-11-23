@@ -22,6 +22,8 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private readonly WordManager _wordManager;
 
+        private readonly DictionarySystem _dictionary_system;
+
         public LibraryWindow(Database database, Window? owner = null)
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             _phonetic_system = new PhoneticSystem(_database);
             _wordManager = new WordManager(
                 _database, _affixSystem, _rootSystem);
+            _dictionary_system = new DictionarySystem(_database);
 
             if (owner != null && owner.IsLoaded)
                 Owner = owner;
@@ -117,19 +120,9 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private void LoadDictionary()
         {
-            using var connection = _database.GetConnection();
-            connection.Open();
+            
 
-            using var command = new SqliteCommand(
-                "SELECT * FROM Dictionary;",
-                connection);
-
-            using var reader = command.ExecuteReader();
-
-            var table = new DataTable();
-            table.Load(reader);
-
-            WordsGrid.ItemsSource = table.DefaultView;
+            WordsGrid.ItemsSource = _dictionary_system.readtable();
         }
 
         private void RootsGrid_SelectionChanged(
@@ -184,25 +177,42 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
         }
 
 
+
         private void AddAffix_Click(object sender, RoutedEventArgs e)
         {
-
             string affix = AffixTextBox.Text.Trim();
             string partOfSpeechId = PartOfSpeechIdBox.Text.Trim();
             string grammaticalRoleCode = GrammaticalRoleCodeBox.Text.Trim();
             string affixTypeId = AffixTypeIdBox.Text.Trim();
 
-
-
-            if (string.IsNullOrWhiteSpace(affix))
+            if (string.IsNullOrWhiteSpace(affix) ||
+                string.IsNullOrWhiteSpace(partOfSpeechId) ||
+                string.IsNullOrWhiteSpace(grammaticalRoleCode) ||
+                string.IsNullOrWhiteSpace(affixTypeId))
             {
-                MessageBox.Show("Wprowadź afiks.");
+                MessageBox.Show("Wypełnij wszystkie pola.");
+                return;
+            }
+
+            if (!int.TryParse(partOfSpeechId, out int posId) ||
+                !int.TryParse(affixTypeId, out int typeId))
+            {
+                MessageBox.Show("Podaj prawidłowe identyfikatory.");
                 return;
             }
 
             try
             {
-                _affixSystem.insert(new AffixModel(0, affix, int.Parse(partOfSpeechId), grammaticalRoleCode, int.Parse(affixTypeId)));
+                var newAffix = new AffixModel(
+                    0,
+                    affix,
+                    posId,
+                    grammaticalRoleCode,
+                    typeId,
+                    "" // Nazwa typu zostanie pobrana podczas odczytu z bazy
+                );
+
+                _affixSystem.insert(newAffix);
 
                 AffixTextBox.Clear();
                 PartOfSpeechIdBox.Clear();
@@ -210,13 +220,15 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
                 AffixTypeIdBox.Clear();
 
                 LoadAffixes();
+
+                MessageBox.Show("Afiks został dodany.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Błąd");
             }
-
         }
+
 
         private void DeleteAffix_Click(object sender, RoutedEventArgs e)
         {
@@ -352,19 +364,14 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
                 return;
             }
 
-            using var connection = _database.GetConnection();
-            connection.Open();
+            var newWord = new WordDictionaryModel(
+                0,
+                word,
+                translation,
+                null
+            );
 
-            using var command = new SqliteCommand(
-                @"INSERT INTO Dictionary (Word, Translation, RootId)
-          VALUES (@Word, @Translation, @RootId);",
-                connection);
-
-            command.Parameters.AddWithValue("@Word", word);
-            command.Parameters.AddWithValue("@Translation", translation);
-            command.Parameters.AddWithValue("@RootId", DBNull.Value);
-
-            command.ExecuteNonQuery();
+            _dictionary_system.insert(newWord);
 
             MessageBox.Show("Słowo zostało dodane.");
 
@@ -373,13 +380,13 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
 
         private void DeleteWord_Click(object sender, RoutedEventArgs e)
         {
-            if (WordsGrid.SelectedItem is not DataRowView selected)
+            if (WordsGrid.SelectedItem is not WordDictionaryModel selected)
             {
                 MessageBox.Show("Wybierz słowo do usunięcia.");
                 return;
             }
 
-            int id = Convert.ToInt32(selected["Id"]);
+            int id = selected.Id;
 
             var result = MessageBox.Show(
                 "Czy na pewno chcesz usunąć to słowo?",
@@ -390,15 +397,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
             if (result != MessageBoxResult.Yes)
                 return;
 
-            using var connection = _database.GetConnection();
-            connection.Open();
-
-            using var command = new SqliteCommand(
-                "DELETE FROM Dictionary WHERE Id = @Id;",
-                connection);
-
-            command.Parameters.AddWithValue("@Id", id);
-            command.ExecuteNonQuery();
+            _dictionary_system.delete(id);
 
             MessageBox.Show("Słowo zostało usunięte.");
 
@@ -414,7 +413,7 @@ namespace Programowanie_Obiektowe_Project_Kyryniuk_Oleh_w73106
                     return;
                 }
 
-                FormsGrid.ItemsSource = _wordManager.ReturnWordFormViewText(
+                FormsGrid.ItemsSource = _wordManager.ReturnWordFormView(
                     selected.Word,
                     selected.GrammaticalRole,
                     selected.RootTranslation);

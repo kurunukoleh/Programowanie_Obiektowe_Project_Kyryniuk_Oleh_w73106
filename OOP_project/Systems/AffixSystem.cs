@@ -119,16 +119,16 @@ namespace OOP_project.Systems
 
             using var command = new SqliteCommand(
                 """
-        SELECT
-            a.Id,
-            a.Affix,
-            t.Name,
-            a.AffixTypeId,
-            a.PartOfSpeechId,
-            a.GrammaticalRoleCode
-        FROM Affixes a
-        JOIN AffixType t ON a.AffixTypeId = t.Id;
-        """,
+                SELECT
+                    t.Id,
+                    t.Affix,
+                    t.PartOfSpeechId,
+                    t.GrammaticalRoleCode,
+                    t.AffixTypeId,
+                    a.Name
+                FROM Affixes t
+                JOIN AffixType a ON a.Id = t.AffixTypeId;
+                """,
                 connection);
 
             using var reader = command.ExecuteReader();
@@ -136,11 +136,12 @@ namespace OOP_project.Systems
             while (reader.Read())
             {
                 items.Add(new AffixModel(
-                    reader.GetInt32(0),    // Id
-                    reader.GetString(1),   // Affix
-                    reader.GetInt32(4),    // PartOfSpeechID
-                    reader.GetString(5),   // GrammaticalRoleCode
-                    reader.GetInt32(3)     // AffixTypeID
+                    reader.GetInt32(0),
+                    reader.GetString(1),
+                    reader.GetInt32(2),
+                    reader.GetString(3),
+                    reader.GetInt32(4),
+                    reader.GetString(5)
                 ));
             }
 
